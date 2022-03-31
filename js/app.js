@@ -26,36 +26,69 @@
 //   })
 // })()
 
-let add = document.querySelector('.nextBtn')
-let remove = document.querySelector('.prevBtn')
 
-let int = document.getElementById('counter')
 
-let counter = 0
+// let add = document.querySelector('.nextBtn')
+// let remove = document.querySelector('.prevBtn')
 
-add.addEventListener('click', function(){
-  counter += 1;
-  int.textContent = counter
+// let int = document.getElementById('counter')
 
-  if (counter > 0) {
-    int.style.color = 'green'
-  } else if (counter < 0) {
-    int.style.color = 'red'
-  } else if (counter === 0) {
-    int.style.color = 'black'
-  }
+// let counter = 0
+
+// add.addEventListener('click', function(){
+//   counter += 1;
+//   int.textContent = counter
+
+//   if (counter > 0) {
+//     int.style.color = 'green'
+//   } else if (counter < 0) {
+//     int.style.color = 'red'
+//   } else if (counter === 0) {
+//     int.style.color = 'black'
+//   }
+// })
+
+// remove.addEventListener('click', function(){
+//   counter -= 1;
+//   int.textContent = counter
+
+//   if (counter > 0) {
+//     int.style.color = 'green'
+//   } else if (counter < 0) {
+//     int.style.color = 'red'
+//   } else if (counter === 0) {
+//     int.style.color = 'black'
+//   }
+// })
+
+
+
+const buttons = document.querySelectorAll('.counterBtn')
+
+let index = 0
+
+buttons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    if (button.classList.contains('prevBtn')) {
+      index--
+    } else if (button.classList.contains('nextBtn')) {
+      index++
+    }
+
+    const counter = document.querySelector('#counter')
+    counter.textContent = index
+
+
+    if (index < 0 ){
+      counter.style.color = 'red'
+    } else if (index > 0){
+      counter.style.color = 'green'
+    } else {
+      counter.style.color = '#333333'
+    }
+  })
 })
 
-remove.addEventListener('click', function(){
-  counter -= 1;
-  int.textContent = counter
 
-  if (counter > 0) {
-    int.style.color = 'green'
-  } else if (counter < 0) {
-    int.style.color = 'red'
-  } else if (counter === 0) {
-    int.style.color = 'black'
-  }
-})
+ 
 
